@@ -6,6 +6,9 @@ import { Component, } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
+
+  sortedCompanies = [];
+
   companies = [
     {name: "Company Afolabi", category: "Finance", start: 1981, end: 2003},
     {name: "Company Afolake", category: "Retail", start: 1992, end: 2003},
@@ -17,5 +20,11 @@ export class AppComponent  {
     {name: "Company Ajibade", category: "Technology", start: 2011, end: 2016},
     {name: "Company Adenike", category: "Retail", start: 1981, end: 1989},
   ]
-  
+
+  ngOnInit() {
+    this.sortCompanies();
+  }
+  sortCompanies() {
+   this.sortedCompanies = this.companies.sort((a, b) => a.name > b.name ? 1 : -1)
+  }
 }
